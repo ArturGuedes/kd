@@ -12,7 +12,16 @@ import HelloWorld from "../components/Hello.astro";
     <title>Astro</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <div>
+      <img
+        src="favicon.svg"
+        alt="Astro logo"
+        width="50"
+        height="50"
+        style="background-color: #000;"
+      />
+      <h1>Astro</h1>
+    </div>
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim labore aut,
       veritatis obcaecati consequatur aperiam perferendis aliquid eum vitae iste
@@ -55,7 +64,6 @@ import HelloWorld from "../components/Hello.astro";
   document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("reset");
     btn.addEventListener("click", () => {
-      alert("Resetado");
       btn.textContent = "Reset " + Math.floor(Math.random() * 100).toString();
     });
 
@@ -71,11 +79,12 @@ import HelloWorld from "../components/Hello.astro";
     font-family: system-ui, sans-serif;
     margin: 2rem;
     display: flex;
-    gap: 16px;
+    gap: 36px;
+    flex-direction: column;
   }
   .container {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 10px;
   }
 </style>
