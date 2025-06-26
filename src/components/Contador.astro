@@ -16,10 +16,10 @@ const { name = "mundo" } = Astro.props;
 
     let contador = 0;
 
-    btn.addEventListener("click", () => {
+    btn?.addEventListener("click", () => {
       contador++;
       console.log(contador);
-      valor.textContent = contador;
+      if (valor) valor.textContent = contador.toString();
     });
   });
 </script>
