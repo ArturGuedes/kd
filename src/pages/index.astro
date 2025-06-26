@@ -3,6 +3,7 @@ import Card from "../components/Card.astro";
 import Clock from "../components/Clock.astro";
 import Counter from "../components/Counter.astro";
 import Image from "../components/Image.astro";
+import Loader from "../components/ui/Loader.astro";
 ---
 
 <html lang="en">
@@ -27,7 +28,7 @@ import Image from "../components/Image.astro";
 
     <div>
       <p>Temperatura</p>
-      <div style="font-size:32pt;" id="jsonplaceholder">carregando...</div>
+      <div style="font-size:46pt;" id="jsonplaceholder"><Loader /></div>
     </div>
 
     <Image src="capi.jpg" alt="Astro logo" width="200" />
