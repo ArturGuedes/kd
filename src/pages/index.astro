@@ -2,7 +2,6 @@
 import Card from "../components/Card.astro";
 import Clock from "../components/Clock.astro";
 import Counter from "../components/Counter.astro";
-import HelloWorld from "../components/Hello.astro";
 import Image from "../components/Image.astro";
 ---
 
@@ -26,53 +25,35 @@ import Image from "../components/Image.astro";
       <h1>Astro</h1>
     </div>
 
-    <div class="container">
-      <p>Componente Hello usando Astro</p>
-      <HelloWorld name="Astro" />
-      <HelloWorld name="Astro 2" />
+    <div>
+      <p>Temperatura</p>
+      <div style="font-size:32pt;" id="jsonplaceholder">carregando...</div>
     </div>
-
-    <Card title="Astro">
-      <Counter />
-    </Card>
-
-    <div class="container">
-      <p>Componente Counter usando Astro</p>
-      <div>
-        <Counter />
-        <Counter />
-        <Counter />
-        <button id="reset">Reset</button>
-      </div>
-    </div>
-
-    <select
-      id="select"
-      style="font-size: 12pt; padding: .5rem; border: 2px solid #000; width: fit-content;"
-    >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
-
-    <Clock />
 
     <Image src="capi.jpg" alt="Astro logo" width="200" />
 
-    <div>
-      <p>Fetch JsonPlaceholder</p>
-      <div id="jsonplaceholder">carregando...</div>
-    </div>
+    <Card title="Contadores">
+      <Counter />
+      <Counter />
+      <Counter />
+    </Card>
+
+    <Card title="Relógio e Select">
+      <select
+        id="select"
+        style="font-size: 12pt; padding: .5rem; border: 2px solid #000; width: fit-content;"
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <Clock />
+    </Card>
   </body>
 </html>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("reset");
-    btn.addEventListener("click", () => {
-      btn.textContent = "Reset " + Math.floor(Math.random() * 100).toString();
-    });
-
     setTimeout(() => {
       const jsonplaceholder = document.getElementById("jsonplaceholder");
       fetch(
@@ -85,7 +66,10 @@ import Image from "../components/Image.astro";
       )
         .then((response) => response.json())
         .then((data) => {
-          jsonplaceholder.textContent = JSON.stringify(data);
+          jsonplaceholder.textContent =
+            JSON.stringify(
+              data.properties.timeseries[0].data.instant.details.air_temperature
+            ) + "º";
         });
     }, 2000);
   });
@@ -96,12 +80,10 @@ import Image from "../components/Image.astro";
     font-family: system-ui, sans-serif;
     margin: 2rem;
     display: flex;
-    gap: 36px;
     flex-direction: column;
   }
   .container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
   }
 </style>
