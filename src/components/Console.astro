@@ -1,4 +1,4 @@
-<div data-console>console</div>
+<ul data-console>console</ul>
 
 <script>
   document.querySelectorAll("[data-console]").forEach((element) => {
@@ -9,8 +9,32 @@
 
       args.forEach((arg) => {
         logs.push(arg);
-        element.textContent = JSON.stringify(logs, null, 2);
+        element.innerHTML = logs
+          .map(
+            (log) =>
+              `<li style='border-bottom: 1px solid #666'>${JSON.stringify(log)}</li>`
+          )
+          .join("");
       });
     };
   });
 </script>
+
+<style>
+  [data-console] {
+    font-family: monospace;
+    white-space: pre;
+    font-size: 0.8rem;
+    padding: 1rem;
+    background: #000;
+    color: #fff;
+    /* position: fixed; */
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    max-height: 86px;
+    height: 86px;
+    overflow: scroll;
+  }
+</style>

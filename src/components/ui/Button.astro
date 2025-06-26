@@ -1,11 +1,11 @@
 ---
-const { onClick, ...props } = Astro.props;
+const { onClick, variant = "outline", ...props } = Astro.props;
 ---
 
 <button
-  style="padding: .5rem; border: 2px solid #000; width: fit-content; background-color: #fff;"
   data-button
   data-button-action={onClick}
+  data-variant={variant}
   {...props}
 >
   <slot />
@@ -20,3 +20,26 @@ const { onClick, ...props } = Astro.props;
     });
   });
 </script>
+
+<style>
+  [data-button] {
+    cursor: pointer;
+    padding: 0.5rem;
+    width: fit-content;
+    display: inline-block;
+    background-color: #fff;
+  }
+
+  [data-button][data-variant="outline"] {
+    border: 2px solid #000;
+  }
+
+  [data-button][data-variant="ghost"] {
+    border: none;
+  }
+
+  [data-button]:hover {
+    background-color: #000;
+    color: #fff;
+  }
+</style>

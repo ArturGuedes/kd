@@ -19,70 +19,66 @@ import Alert from "../components/Alert.astro";
     <title>Astro</title>
   </head>
   <body>
-    <header>
-      <img
-        src="favicon.svg"
-        alt="Astro logo"
-        width="50"
-        height="50"
-        style="background-color: #666;"
-      />
-      <h1>Astro</h1>
-    </header>
+    <section>
+      <header>
+        <img
+          src="favicon.svg"
+          alt="Astro logo"
+          width="50"
+          height="50"
+          style="background-color: #666;"
+        />
+        <h1>Astro</h1>
+      </header>
 
-    <main>
-      <Card title="Temperatura">
-        <div style="font-size:46pt;" id="jsonplaceholder"><Loader /></div>
-      </Card>
+      <main>
+        <Card title="Temperatura">
+          <div style="font-size:46pt;" id="jsonplaceholder"><Loader /></div>
+        </Card>
 
-      <Card title="Imagem">
-        <Image src="capi.jpg" alt="Astro logo" width="200" />
-      </Card>
+        <Card title="Imagem">
+          <Image src="capi.jpg" alt="Astro logo" width="200" />
+        </Card>
 
-      <Card title="Contadores">
-        <Counter />
-        <Counter />
-        <Counter />
-      </Card>
+        <Card title="Contadores">
+          <Counter />
+          <Counter />
+          <Counter />
+        </Card>
 
-      <Card title="Relógio e Select">
-        <Clock />
-        <Select />
-      </Card>
+        <Card title="Relógio e Select">
+          <Clock />
+          <Select />
+        </Card>
 
-      <Card title="Usando eval()">
-        <Button onClick={`${() => alert("Alerta de Teste")}`}>Alerta</Button>
-        <Button
-          onClick={`${() => {
-            window.globalVar = Math.floor(Math.random() * 100);
-            console.log(window.globalVar);
-          }}`}
-        >
-          Variável Global
-        </Button>
-        <Button onClick={`${() => console.log("Console de teste")}`}>
-          Console
-        </Button>
+        <Card title="Usando eval()">
+          <Button onClick={`${() => alert("Alerta de Teste")}`}>Alerta</Button>
+          <Button
+            onClick={`${() => console.log({ w: window.innerWidth, h: window.innerHeight })}`}
+          >
+            Viewport
+          </Button>
+          <Button
+            onClick={`${() => {
+              window.globalVar = Math.floor(Math.random() * 100);
+              console.log(window.globalVar);
+            }}`}
+          >
+            Variável Global
+          </Button>
+          <Button onClick={`${() => console.log("Console de teste")}`}>
+            Console
+          </Button>
 
-        <Button onClick={`${() => location.reload()}`}>Recarregar página</Button
-        >
-        <Button
-          onClick={`${() => {
-            if (document.fullscreenElement) {
-              document.exitFullscreen();
-            } else {
-              document.documentElement.requestFullscreen();
-            }
-          }}`}>Fullscreen</Button
-        >
-      </Card>
-
-      <Card title="Console">
-        <Console />
-      </Card>
-
-      <Alert />
-    </main>
+          <Button onClick={`${() => location.reload()}`}
+            >Recarregar página</Button
+          >
+        </Card>
+      </main>
+    </section>
+    <Console />
+    <Alert />
+    <img src="sample.png" alt="Astro logo" width="100%" />
   </body>
 </html>
 
@@ -112,6 +108,10 @@ import Alert from "../components/Alert.astro";
 <style>
   body {
     font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  section {
     margin: 2rem;
     display: grid;
     flex-direction: column;
