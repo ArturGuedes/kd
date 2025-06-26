@@ -1,0 +1,50 @@
+---
+import Button from "./ui/Button.astro";
+---
+
+<div data-alert-container data-visible="false">
+  <div data-alert-modal>
+    <span data-alert-message></span>
+    <Button data-close>Fechar</Button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll("[data-alert-container]").forEach((container) => {
+    // const defaultAlert = alert;
+    alert = function (...args) {
+      //   defaultAlert(...args);
+      container.dataset.visible = true;
+
+      const alertModal = container.querySelector("[data-alert-modal]");
+      alertModal.querySelector("[data-alert-message]").textContent = args[0];
+
+      alertModal.querySelector("[data-close]").addEventListener("click", () => {
+        container.dataset.visible = false;
+      });
+    };
+  });
+</script>
+
+<style>
+  [data-alert-container] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  [data-alert-container][data-visible="false"] {
+    display: none;
+  }
+
+  [data-alert-modal] {
+    border: 2px solid black;
+    background: white;
+    padding: 1rem;
+  }
+</style>

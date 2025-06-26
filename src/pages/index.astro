@@ -7,6 +7,7 @@ import Image from "../components/Image.astro";
 import Loader from "../components/ui/Loader.astro";
 import Select from "../components/ui/Select.astro";
 import Console from "../components/Console.astro";
+import Alert from "../components/Alert.astro";
 ---
 
 <html lang="en">
@@ -50,7 +51,19 @@ import Console from "../components/Console.astro";
       </Card>
 
       <Card title="Usando eval()">
-        <Button onClick={`${() => alert("Teste")}`}>Alerta</Button>
+        <Button onClick={`${() => alert("Alerta de Teste")}`}>Alerta</Button>
+        <Button
+          onClick={`${() => {
+            window.globalVar = Math.floor(Math.random() * 100);
+            console.log(window.globalVar);
+          }}`}
+        >
+          Variável Global
+        </Button>
+        <Button onClick={`${() => console.log("Console de teste")}`}>
+          Console
+        </Button>
+
         <Button onClick={`${() => location.reload()}`}>Recarregar página</Button
         >
         <Button
@@ -62,12 +75,13 @@ import Console from "../components/Console.astro";
             }
           }}`}>Fullscreen</Button
         >
-        <Button onClick={`${() => console.log("Teste")}`}>Console</Button>
       </Card>
 
       <Card title="Console">
         <Console />
       </Card>
+
+      <Alert />
     </main>
   </body>
 </html>
