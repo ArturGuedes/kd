@@ -1,23 +1,15 @@
----
-const { name = "mundo" } = Astro.props;
----
-
-<button id="contador">
-  Clicado <span id="contador-valor">0</span> vezes
-</button>
+<button data-counter-button>Count 0</button>
 
 <script>
-  // Espera o DOM carregar antes de conectar o evento
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("contador");
-    const valor = document.getElementById("contador-valor");
+  // Import npm modules.
 
-    let contador = 0;
+  // Find our component DOM on the page.
+  const buttons = document.querySelectorAll("[data-counter-button]");
 
-    btn.addEventListener("click", () => {
-      contador++;
-      console.log(contador);
-      if (valor) valor.textContent = contador.toString();
+  // Add event listeners when a button is clicked.
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      button.textContent = "Count " + Math.floor(Math.random() * 100);
     });
   });
 </script>

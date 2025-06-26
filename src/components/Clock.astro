@@ -1,0 +1,16 @@
+<div
+  data-clock
+  style="font-size: 24pt; padding: 1rem; border: 2px solid #000; width: fit-content;"
+>
+  0
+</div>
+
+<script>
+  const element = document.querySelectorAll("[data-clock]");
+
+  element.forEach((target) => {
+    setInterval(() => {
+      target.textContent = Math.floor(Math.random() * 100).toString();
+    }, 1000);
+  });
+</script>

@@ -1,0 +1,10 @@
+---
+const { title = "Card" } = Astro.props;
+---
+
+<div>
+  <h2>{title}</h2>
+  <slot>
+    <p>Carregando...</p>
+  </slot>
+</div>
