@@ -60,6 +60,15 @@ import HelloWorld from "../components/Hello.astro";
 
     <img src="capi.png" alt="Astro logo" width="200" />
     <img src="capi.jpg" alt="Astro logo" width="200" />
+
+    <div>
+      <p>Fetch JsonPlaceholder</p>
+      <div id="jsonplaceholder"></div>
+    </div>
+    <div>
+      <p>XML JsonPlaceholder</p>
+      <div id="jsonplaceholder2"></div>
+    </div>
   </body>
 </html>
 
@@ -74,6 +83,19 @@ import HelloWorld from "../components/Hello.astro";
     setInterval(() => {
       counter.textContent = Math.floor(Math.random() * 100).toString();
     }, 1000);
+
+    const jsonplaceholder = document.getElementById("jsonplaceholder");
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+      .then((response) => response.json())
+      .then((data) => {
+        jsonplaceholder.textContent = JSON.stringify(data);
+      });
+
+    const jsonplaceholder2 = document.getElementById("jsonplaceholder2");
+    const req = new XMLHttpRequest();
+    req.open("GET", "https://jsonplaceholder.typicode.com/posts/2", false);
+    req.send();
+    jsonplaceholder2.textContent = req.responseText;
   });
 </script>
 
