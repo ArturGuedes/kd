@@ -9,6 +9,7 @@ import HelloWorld from "../components/Hello.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Astro</title>
   </head>
   <body>
@@ -19,6 +20,8 @@ import HelloWorld from "../components/Hello.astro";
       cumque distinctio velit saepe doloribus nobis magni, dolore adipisci? Eos.
     </p>
 
+    <h1 class="text-3xl font-bold underline">Hello tailwindcss!</h1>
+
     <div class="container">
       <p>Componente Hello usando Astro</p>
       <HelloWorld name="Astro" />
@@ -28,12 +31,15 @@ import HelloWorld from "../components/Hello.astro";
     <div class="container">
       <p>Componente Contador usando Astro</p>
       <div>
-        <!-- <Contador /> -->
+        <Contador />
         <!-- <button id="reset">Reset</button> -->
       </div>
     </div>
 
-    <select id="select">
+    <select
+      id="select"
+      style="font-size: 12pt; padding: .5rem; border: 2px solid #000; width: fit-content;"
+    >
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -41,7 +47,7 @@ import HelloWorld from "../components/Hello.astro";
 
     <div
       id="counter"
-      style="font-size: 24pt; padding: 1rem; border: 2px solid #000; margin: 1rem; width: fit-content;"
+      style="font-size: 24pt; padding: 1rem; border: 2px solid #000; width: fit-content;"
     >
       0
     </div>
@@ -66,6 +72,9 @@ import HelloWorld from "../components/Hello.astro";
   body {
     font-family: system-ui, sans-serif;
     margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
   .container {
     display: flex;
