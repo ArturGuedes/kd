@@ -6,11 +6,9 @@
 </div>
 
 <script>
-  const element = document.querySelectorAll("[data-clock]");
-
-  element.forEach((target) => {
+  document.querySelectorAll("[data-clock]").forEach((element) => {
     setInterval(() => {
-      target.textContent = Math.floor(Math.random() * 100).toString();
+      element.textContent = Math.floor(Math.random() * 100).toString();
     }, 1000);
   });
 </script>

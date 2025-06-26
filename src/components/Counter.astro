@@ -1,0 +1,13 @@
+---
+import Button from "./Button.astro";
+---
+
+<Button data-counter-button>Count 0</Button>
+
+<script>
+  document.querySelectorAll("[data-counter-button]").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.textContent = "Count " + Math.floor(Math.random() * 100);
+    });
+  });
+</script>

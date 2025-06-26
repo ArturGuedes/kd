@@ -1,9 +1,9 @@
 ---
 import Card from "../components/Card.astro";
 import Clock from "../components/Clock.astro";
-import ConfettiButton from "../components/ConfettiButton.astro";
-import Contador from "../components/Contador.astro";
+import Counter from "../components/Counter.astro";
 import HelloWorld from "../components/Hello.astro";
+import Image from "../components/Image.astro";
 ---
 
 <html lang="en">
@@ -21,7 +21,7 @@ import HelloWorld from "../components/Hello.astro";
         alt="Astro logo"
         width="50"
         height="50"
-        style="background-color: #000;"
+        style="background-color: #666;"
       />
       <h1>Astro</h1>
     </div>
@@ -33,15 +33,15 @@ import HelloWorld from "../components/Hello.astro";
     </div>
 
     <Card title="Astro">
-      <Contador />
+      <Counter />
     </Card>
 
     <div class="container">
-      <p>Componente Contador usando Astro</p>
+      <p>Componente Counter usando Astro</p>
       <div>
-        <Contador />
-        <Contador />
-        <Contador />
+        <Counter />
+        <Counter />
+        <Counter />
         <button id="reset">Reset</button>
       </div>
     </div>
@@ -57,8 +57,7 @@ import HelloWorld from "../components/Hello.astro";
 
     <Clock />
 
-    <img src="capi.png" alt="Astro logo" width="200" />
-    <img src="capi.jpg" alt="Astro logo" width="200" />
+    <Image src="capi.jpg" alt="Astro logo" width="200" />
 
     <div>
       <p>Fetch JsonPlaceholder</p>
