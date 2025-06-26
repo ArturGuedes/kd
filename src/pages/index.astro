@@ -1,5 +1,6 @@
 ---
 import BotaoContador from "../components/BotaoContador.jsx";
+import Contador from "../components/Contador.astro";
 import HelloWorld from "../components/Hello.astro";
 ---
 
@@ -13,10 +14,56 @@ import HelloWorld from "../components/Hello.astro";
   </head>
   <body>
     <h1>Astro</h1>
-    <p>test</p>
-    <HelloWorld name="Astro" />
-    <HelloWorld name="Astro 2" />
-    <BotaoContador client:load />
-    <BotaoContador client:load />
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim labore aut,
+      veritatis obcaecati consequatur aperiam perferendis aliquid eum vitae iste
+      cumque distinctio velit saepe doloribus nobis magni, dolore adipisci? Eos.
+    </p>
+
+    <div class="container">
+      <p>Componente Hello usando Astro</p>
+      <HelloWorld name="Astro" />
+      <HelloWorld name="Astro 2" />
+    </div>
+
+    <div class="container">
+      <p>Componente Contador usando Astro</p>
+      <div>
+        <Contador />
+      </div>
+    </div>
+
+    <div class="container">
+      <p>Componente BotaoContador usando React</p>
+      <div>
+        <BotaoContador client:load />
+        <BotaoContador client:load />
+      </div>
+    </div>
   </body>
 </html>
+
+<style>
+  body {
+    font-family: system-ui;
+    padding: 2rem;
+    background-color: #eee;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    all: unset;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>

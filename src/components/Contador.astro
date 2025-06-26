@@ -1,0 +1,25 @@
+---
+const { name = "mundo" } = Astro.props;
+---
+
+<button id="contador">
+  Clicado <span id="contador-valor">0</span> vezes
+</button>
+
+<script>
+  // Espera o DOM carregar antes de conectar o evento
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("contador");
+    const valor = document.getElementById("contador-valor");
+
+    console.log(btn, valor);
+
+    let contador = 0;
+
+    btn.addEventListener("click", () => {
+      contador++;
+      console.log(contador);
+      valor.textContent = contador;
+    });
+  });
+</script>

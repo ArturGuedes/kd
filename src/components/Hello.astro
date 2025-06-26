@@ -2,7 +2,15 @@
 const { name = "mundo" } = Astro.props;
 ---
 
-<div>
-  <h1>Olá, {name}!</h1>
-  <p>Este é um componente Astro.</p>
+<div class="hello">
+  <small>Componente Hello</small>
+  <div>Prop name: {name}!</div>
 </div>
+
+<style>
+  .hello {
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 1rem;
+  }
+</style>
