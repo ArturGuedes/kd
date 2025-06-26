@@ -29,10 +29,17 @@ import HelloWorld from "../components/Hello.astro";
       <p>Componente Contador usando Astro</p>
       <div>
         <Contador />
+        <button id="reset">Reset</button>
       </div>
     </div>
   </body>
 </html>
+
+<script>
+  document.getElementById("reset")?.addEventListener("click", () => {
+    alert("Reset");
+  });
+</script>
 
 <style>
   .container {
