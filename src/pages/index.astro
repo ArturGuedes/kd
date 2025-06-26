@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 import Button from "../components/ui/Button.astro";
 import Card from "../components/Card.astro";
 import Clock from "../components/Clock.astro";
@@ -18,7 +20,13 @@ import Alert from "../components/Alert.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
+
   <body>
+    <h1
+      class="text-3xl font-bold underline border border-solid border-border p-4 m-4"
+    >
+      Hello tailwindcss!
+    </h1>
     <section>
       <header>
         <img

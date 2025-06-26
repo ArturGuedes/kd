@@ -1,33 +1,20 @@
 ---
 import Button from "./ui/Button.astro";
+import { X } from "@lucide/astro";
 ---
 
 <div data-alert-container data-visible="false">
   <div data-alert-modal>
     <span data-alert-message> Configurações do navegador </span>
-    <Button data-close variant="ghost"
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-x-icon lucide-x"
-        ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
-      ></Button
-    >
+    <Button data-close variant="ghost"><X /></Button>
   </div>
 </div>
 
 <script>
   document.querySelectorAll("[data-alert-container]").forEach((container) => {
-    // const defaultAlert = alert;
+    const defaultAlert = alert;
     alert = function (...args) {
-      //   defaultAlert(...args);
+      defaultAlert(...args);
       container.dataset.visible = true;
 
       const alertModal = container.querySelector("[data-alert-modal]");
