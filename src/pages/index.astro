@@ -54,7 +54,10 @@ import Alert from "../components/Alert.astro";
         <Card title="Usando eval()">
           <Button onClick={`${() => alert("Alerta de Teste")}`}>Alerta</Button>
           <Button
-            onClick={`${() => console.log({ w: window.innerWidth, h: window.innerHeight })}`}
+            onClick={`${() => {
+              //w:536 h:616
+              console.log({ w: window.innerWidth, h: window.innerHeight });
+            }}`}
           >
             Viewport
           </Button>
@@ -78,7 +81,14 @@ import Alert from "../components/Alert.astro";
     </section>
     <Console />
     <Alert />
-    <img src="sample.png" alt="Astro logo" width="100%" />
+
+    <p>518px</p>
+    <!-- <img
+      src="sample.png"
+      alt="Astro logo"
+      width="518px"
+      style="border: 1px solid #666;"
+    /> -->
   </body>
 </html>
 
@@ -106,10 +116,16 @@ import Alert from "../components/Alert.astro";
 </script>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   body {
     font-family: system-ui, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
   section {
     margin: 2rem;
