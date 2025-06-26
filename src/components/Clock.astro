@@ -2,13 +2,13 @@
   data-clock
   style="font-size: 12pt; display: inline-block; padding: .5rem; border: 2px solid #000; width: fit-content;"
 >
-  0
 </div>
 
 <script>
   document.querySelectorAll("[data-clock]").forEach((element) => {
+    element.textContent = new Date().toLocaleTimeString();
     setInterval(() => {
-      element.textContent = Math.floor(Math.random() * 100).toString();
+      element.textContent = new Date().toLocaleTimeString();
     }, 1000);
   });
 </script>

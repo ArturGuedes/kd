@@ -1,0 +1,16 @@
+<div data-console>console</div>
+
+<script>
+  document.querySelectorAll("[data-console]").forEach((element) => {
+    let logs = [];
+    console.log = function (...args) {
+      // Exibe no console original
+      window.console.info(...args);
+
+      args.forEach((arg) => {
+        logs.push(arg);
+        element.textContent = JSON.stringify(logs, null, 2);
+      });
+    };
+  });
+</script>

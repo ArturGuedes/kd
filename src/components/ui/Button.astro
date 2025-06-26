@@ -14,7 +14,7 @@ const { onClick, ...props } = Astro.props;
 <script>
   document.querySelectorAll("[data-button]").forEach((button) => {
     button.addEventListener("click", () => {
-      console.log(button.dataset.buttonAction);
+      if (!button.dataset.buttonAction) return;
       const action = eval(button.dataset.buttonAction);
       action();
     });

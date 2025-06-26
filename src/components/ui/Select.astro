@@ -1,0 +1,24 @@
+---
+const {
+  data = [
+    { value: 1, label: "1" },
+    { value: 2, label: "2" },
+    { value: 3, label: "3" },
+  ],
+} = Astro.props;
+---
+
+<select
+  data-select
+  style="font-size: 12pt; padding: .5rem; border: 2px solid #000; width: fit-content;"
+>
+  {data.map(({ value, label }) => <option value={value}>{label}</option>)}
+</select>
+
+<script>
+  document.querySelectorAll("[data-select]").forEach((select) => {
+    select.addEventListener("change", () => {
+      console.log(select.value);
+    });
+  });
+</script>
