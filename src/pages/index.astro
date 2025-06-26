@@ -32,12 +32,21 @@ import HelloWorld from "../components/Hello.astro";
         <button id="reset">Reset</button>
       </div>
     </div>
+
+    <select id="select">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
   </body>
 </html>
 
 <script>
-  document.getElementById("reset")?.addEventListener("click", () => {
-    alert("Reset");
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("reset");
+    btn?.addEventListener("click", () => {
+      btn.textContent = "Reset " + Math.floor(Math.random() * 100).toString();
+    });
   });
 </script>
 
