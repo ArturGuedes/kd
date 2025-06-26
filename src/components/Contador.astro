@@ -12,11 +12,10 @@ const { name = "mundo" } = Astro.props;
     const btn = document.getElementById("contador");
     const valor = document.getElementById("contador-valor");
 
-    console.log(btn, valor);
-
     let contador = 0;
 
     btn?.addEventListener("click", () => {
+      alert("clicou");
       contador++;
       console.log(contador);
       if (valor) valor.textContent = contador.toString();
