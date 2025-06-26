@@ -1,6 +1,4 @@
 ---
-import "../styles/global.css";
-
 import Button from "../components/ui/Button.astro";
 import Card from "../components/Card.astro";
 import Clock from "../components/Clock.astro";
@@ -18,12 +16,16 @@ import Alert from "../components/Alert.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <title>Astro</title>
   </head>
 
   <body>
     <h1
-      class="text-3xl font-bold underline border border-solid border-border p-4 m-4"
+      class="text-3xl font-bold underline border border-solid border-border p-6 m-4"
     >
       Hello tailwindcss!
     </h1>
@@ -124,11 +126,12 @@ import Alert from "../components/Alert.astro";
 </script>
 
 <style>
-  * {
+  /* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+  } */
+  html,
   body {
     font-family: system-ui, sans-serif;
     margin: 0;
