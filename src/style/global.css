@@ -1,8 +1,17 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/**
+ * This file is based on Tailwind's default styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * The Kindle browser has limited support for CSS properties.
+ *
+ * tailwind.min.css v1.0 <https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css>
+ * normalize.css v8.0.1 <https://github.com/necolas/normalize.css>
+*/
 
 html {
     line-height: 1.15;
-    -webkit-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
+    font-size: 22px;
 }
 
 body {
@@ -18373,6 +18382,7 @@ video {
     z-index: auto
 }
 
+/* 
 .gap-0 {
     grid-gap: 0;
     gap: 0
@@ -18466,7 +18476,7 @@ video {
 .gap-px {
     grid-gap: 1px;
     gap: 1px
-}
+} */
 
 .col-gap-0 {
     grid-column-gap: 0;
@@ -21285,7 +21295,7 @@ video {
 }
 
 .animate-spin {
-    animation: spin 1s linear infinite
+    animation: spin 5s linear infinite
 }
 
 .animate-ping {
