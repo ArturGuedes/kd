@@ -6,15 +6,15 @@ import { X } from "@lucide/astro";
 <div data-alert-container data-visible="false">
   <div data-alert-modal>
     <span data-alert-message> Configurações do navegador </span>
-    <Button data-close variant="ghost"><X /></Button>
+    <Button data-close variant="ghost" class="aspect-square"><X /></Button>
   </div>
 </div>
 
 <script>
   document.querySelectorAll("[data-alert-container]").forEach((container) => {
-    const defaultAlert = alert;
+    // const defaultAlert = alert;
     alert = function (...args) {
-      defaultAlert(...args);
+      // defaultAlert(...args);
       container.dataset.visible = true;
 
       const alertModal = container.querySelector("[data-alert-modal]");

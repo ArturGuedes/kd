@@ -1,0 +1,21 @@
+---
+import Console from "../components/Console.astro";
+import Button from "../components/ui/Button.astro";
+import BaseLayout from "../layout/BaseLayout.astro";
+
+const goBack = () => history.back();
+const showViewport = () =>
+  console.log({ w: window.innerWidth, h: window.innerHeight });
+const showConsole = () => console.log("Teste");
+const showAlert = () => alert("Teste");
+---
+
+<BaseLayout title="Debug">
+  <section>
+    <Button onClick={goBack}>Voltar</Button>
+    <Button onClick={showViewport}>Viewport</Button>
+    <Button onClick={showConsole}>Console</Button>
+    <Button onClick={showAlert}>Alerta</Button>
+    <Console />
+  </section>
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import { Loader2 } from "@lucide/astro";
+---
+
+<div style="font-size:46pt;" id="jsonplaceholder">
+  <Loader2 class="animate-spin" />
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const jsonplaceholder = document.getElementById("jsonplaceholder");
+      fetch(
+        "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=-22.91&lon=-43.17",
+        {
+          headers: {
+            "User-Agent": "kd-app/1.0 (github.com/ArturGuedes)",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          jsonplaceholder.textContent =
+            JSON.stringify(
+              data.properties.timeseries[0].data.instant.details.air_temperature
+            ) + "º";
+        });
+    }, 2000);
+  });
+</script>

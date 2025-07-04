@@ -6,6 +6,8 @@ const { onClick, variant = "outline", ...props } = Astro.props;
   data-button
   data-button-action={onClick}
   data-variant={variant}
+  class={"py-1 px-4 bg-transparent border-2 border-solid rounded hover:bg-black hover:text-white focus:outline-none " +
+    props.class}
   {...props}
 >
   <slot />
@@ -14,32 +16,19 @@ const { onClick, variant = "outline", ...props } = Astro.props;
 <script>
   document.querySelectorAll("[data-button]").forEach((button) => {
     button.addEventListener("click", () => {
-      if (!button.dataset.buttonAction) return;
-      const action = eval(button.dataset.buttonAction);
-      action();
+      const action = button.getAttribute("data-button-action");
+      if (!action) return;
+      const func = eval(action);
+      func();
     });
   });
 </script>
 
 <style>
-  [data-button] {
-    cursor: pointer;
-    padding: 0.5rem;
-    width: fit-content;
-    display: inline-block;
-    background-color: transparent;
-  }
-
   [data-button][data-variant="outline"] {
-    border: 2px solid #000;
+    border-color: #000;
   }
-
   [data-button][data-variant="ghost"] {
-    border: none;
-  }
-
-  [data-button]:hover {
-    background-color: #000;
-    color: #fff;
+    border-color: transparent;
   }
 </style>

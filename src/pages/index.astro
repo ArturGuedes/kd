@@ -1,153 +1,19 @@
 ---
-import Button from "../components/ui/Button.astro";
-import Card from "../components/Card.astro";
-import Clock from "../components/Clock.astro";
-import Counter from "../components/Counter.astro";
-import Image from "../components/Image.astro";
-import Loader from "../components/ui/Loader.astro";
-import Select from "../components/ui/Select.astro";
-import Console from "../components/Console.astro";
-import Alert from "../components/Alert.astro";
-import B from "../components/Button.astro"
+import Forecast from "../components/Forecast.astro";
+import BaseLayout from "../layout/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <title>Astro</title>
-  </head>
+<BaseLayout class="p-4 py-8">
+  <h1 class="text-2xl w-48">
+    Hello, what's the weather <span class="font-bold">today</span>?
+  </h1>
 
-  <body>
-<B/>
-    <h1
-      class="text-3xl font-bold underline border border-solid border-border p-6 m-4"
-    >
-      Hello tailwindcss!
-    </h1>
-    <section>
-      <header>
-        <img
-          src="favicon.svg"
-          alt="Astro logo"
-          width="50"
-          height="50"
-          style="background-color: #666;"
-        />
-        <h1>Astro</h1>
-      </header>
+  <Forecast />
 
-      <main>
-        <Card title="Temperatura">
-          <div style="font-size:46pt;" id="jsonplaceholder"><Loader /></div>
-        </Card>
-
-        <Card title="Imagem">
-          <Image src="capi.jpg" alt="Astro logo" width="200" />
-        </Card>
-
-        <Card title="Contadores">
-          <Counter />
-          <Counter />
-          <Counter />
-        </Card>
-
-        <Card title="Relógio e Select">
-          <Clock />
-          <Select />
-        </Card>
-
-        <Card title="Usando eval()">
-          <Button onClick={`${() => alert("Alerta de Teste")}`}>Alerta</Button>
-          <Button
-            onClick={`${() => {
-              //w:536 h:616
-              console.log({ w: window.innerWidth, h: window.innerHeight });
-            }}`}
-          >
-            Viewport
-          </Button>
-          <Button
-            onClick={`${() => {
-              window.globalVar = Math.floor(Math.random() * 100);
-              console.log(window.globalVar);
-            }}`}
-          >
-            Variável Global
-          </Button>
-          <Button onClick={`${() => console.log("Console de teste")}`}>
-            Console
-          </Button>
-
-          <Button onClick={`${() => location.reload()}`}
-            >Recarregar página</Button
-          >
-        </Card>
-      </main>
-    </section>
-    <Console />
-    <Alert />
-
-    <p>518px</p>
-    <!-- <img
-      src="sample.png"
-      alt="Astro logo"
-      width="518px"
-      style="border: 1px solid #666;"
-    /> -->
-  </body>
-</html>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-      const jsonplaceholder = document.getElementById("jsonplaceholder");
-      fetch(
-        "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=-22.91&lon=-43.17",
-        {
-          headers: {
-            "User-Agent": "kd-app/1.0 (github.com/ArturGuedes)",
-          },
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          jsonplaceholder.textContent =
-            JSON.stringify(
-              data.properties.timeseries[0].data.instant.details.air_temperature
-            ) + "º";
-        });
-    }, 2000);
-  });
-</script>
-
-<style>
-  /* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } */
-  html,
-  body {
-    font-family: system-ui, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-  section {
-    margin: 2rem;
-    display: grid;
-    flex-direction: column;
-    filter: grayscale(100%);
-  }
-  main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-</style>
+  <section
+    class="flex items-center justify-center gap-4 fixed bottom-0 left-0 border-t-2 border-solid border-black p-4 w-full"
+  >
+    <a href="weather" class="border-b-2 border-solid border-black">Weather</a>
+    <a href="settings">Settings</a>
+  </section>
+</BaseLayout>

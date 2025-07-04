@@ -1,0 +1,24 @@
+---
+import Alert from "../components/Alert.astro";
+import "../style/global.css";
+
+const { title = "Kindle Weather", ...props } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    /> -->
+    <title>{title}</title>
+  </head>
+  <body class={"flex flex-col min-h-screen " + props.class}>
+    <slot />
+    <Alert />
+  </body>
+</html>
