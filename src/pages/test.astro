@@ -8,22 +8,12 @@ import Select from "../components/ui/Select.astro";
 
 import { Image } from "astro:assets";
 import capi from "../assets/capi.jpg";
+import BaseLayout from "../layout/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <title>Astro</title>
-  </head>
 
-  <body>
+
+  <BaseLayout class="p-4 pb-20">
     <h1
       class="text-3xl font-bold underline border border-solid border-border p-6 m-4"
     >
@@ -98,7 +88,7 @@ import capi from "../assets/capi.jpg";
       width="518px"
       style="border: 1px solid #666;"
     /> -->
-  </body>
+  </BaseLayout>
 </html>
 
 <script>
