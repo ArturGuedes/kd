@@ -2,25 +2,25 @@
 import { Loader2 } from "@lucide/astro";
 ---
 
-<div style="font-size:46pt;" id="jsonplaceholder">
+<div data-forecast class="flex items-center w-56 h-24 text-6xl">
   <Loader2 class="animate-spin" />
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-forecast]").forEach((element) => {
     setTimeout(() => {
-      const jsonplaceholder = document.getElementById("jsonplaceholder");
-      fetch(
-        "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=-22.91&lon=-43.17",
-        {
+      const weatherApi = {
+        url: "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=-22.91&lon=-43.17",
+        params: {
           headers: {
             "User-Agent": "kd-app/1.0 (github.com/ArturGuedes)",
           },
-        }
-      )
+        },
+      };
+      fetch(weatherApi.url, weatherApi.params)
         .then((response) => response.json())
         .then((data) => {
-          jsonplaceholder.textContent =
+          element.textContent =
             JSON.stringify(
               data.properties.timeseries[0].data.instant.details.air_temperature
             ) + "º";
