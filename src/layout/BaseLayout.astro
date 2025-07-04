@@ -3,6 +3,7 @@ import Alert from "../components/Alert.astro";
 import "../style/global.css";
 
 const { title = "Kindle Weather", ...props } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
 <html lang="en">
@@ -11,14 +12,35 @@ const { title = "Kindle Weather", ...props } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <!-- <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-      rel="stylesheet"
-    /> -->
     <title>{title}</title>
   </head>
   <body class={"flex flex-col min-h-screen " + props.class}>
-    <slot />
     <Alert />
+    <slot />
+    <section
+      class="flex items-center justify-center gap-4 fixed bottom-0 left-0 border-t-2 border-solid border-black p-4 w-full bg-white"
+    >
+      <a
+        href={import.meta.env.BASE_URL}
+        data-selected={pathname === import.meta.env.BASE_URL}
+        class="border-b-2 border-solid border-transparent mx-4">Weather</a
+      >
+      <a
+        href="settings"
+        data-selected={pathname.includes("settings")}
+        class="border-b-2 border-solid border-transparent mx-4">Settings</a
+      >
+      <a
+        href="test"
+        data-selected={pathname.includes("test")}
+        class="border-b-2 border-solid border-transparent mx-4">test</a
+      >
+    </section>
   </body>
 </html>
+
+<style>
+  [data-selected="true"] {
+    border-color: #000;
+  }
+</style>

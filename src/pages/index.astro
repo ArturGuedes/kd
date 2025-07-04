@@ -4,16 +4,9 @@ import BaseLayout from "../layout/BaseLayout.astro";
 ---
 
 <BaseLayout class="p-4 py-8">
-  <h1 class="text-2xl w-48">
+  <h1 class="text-xl w-48">
     Hello, what's the weather <span class="font-bold">today</span>?
   </h1>
 
   <Forecast />
-
-  <section
-    class="flex items-center justify-center gap-4 fixed bottom-0 left-0 border-t-2 border-solid border-black p-4 w-full"
-  >
-    <a href="weather" class="border-b-2 border-solid border-black">Weather</a>
-    <a href="settings">Settings</a>
-  </section>
 </BaseLayout>
